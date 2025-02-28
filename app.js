@@ -103,8 +103,10 @@ const startGame = async () => {
 };
 
 const userInput = async (color) => {
-    userSequence.push(color);
     const pad = document.getElementById(`pad-${color}`);
+    if (pad.disabled) return;
+
+    userSequence.push(color);
     pad.classList.add('active');
     setTimeout(() => pad.classList.remove('active'), 500);
 
